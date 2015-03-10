@@ -96,6 +96,8 @@ def draw_submap(image_file, line_shift, subG, centre_long, centre_lat, radius, i
 
     basemap_ds = gdal.Open(image_file)
     
+    WGS84 = Proj(init='epsg:4326')
+    BNG = Proj(init='epsg:27700')    
     
     # The magic args to quiver to make it behave like you'd hope
     quiver_args = dict(scale_units='xy', angles='xy', scale=1)
