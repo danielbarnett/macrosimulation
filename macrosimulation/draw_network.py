@@ -4,7 +4,7 @@
 import networkx as nx
 import location_stuff as ls
 from osgeo import gdal
-from shapely import LineString
+from shapely.geometry import LineString
 
 def node_map(routeG, flow_thresh):
     # Draws a visual representation of the flow between nodes in the network
