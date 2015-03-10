@@ -5,7 +5,7 @@ import networkx as nx
 import location_stuff as ls
 from osgeo import gdal
 from shapely.geometry import LineString, Point
-from matplotlib.pyplot import figure, gca, axis, colorbar, imshow, quiver
+from matplotlib.pyplot import *
 
 def node_map(routeG, flow_thresh):
     # Draws a visual representation of the flow between nodes in the network
@@ -153,4 +153,15 @@ def draw_submap(image_file, line_shift, subG, centre_long, centre_lat, radius, i
     # Add a colorbar
     cb = colorbar(qv)
     cb.set_label(key_of_interest)
+    
+    import time
+    
+    now_time = time.strftime("%H%M%S")
+    now_date = time.strftime("%d%m%Y")
+    now_ = now_date + ' ' + now_time
+    filename = '/home/daniel/Macrosimulation/Cambridge Day/' + now_ + '.png'
+    
+    title(now_)
+    
+    savefig(filename)
 
