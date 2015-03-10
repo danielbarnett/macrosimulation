@@ -5,6 +5,7 @@ import networkx as nx
 import location_stuff as ls
 from osgeo import gdal
 from shapely.geometry import LineString, Point
+from matplotlib.pyplot import figure, gca, axis, colorbar, imshow, quiver
 
 def node_map(routeG, flow_thresh):
     # Draws a visual representation of the flow between nodes in the network
@@ -86,7 +87,7 @@ def dsshow(ds, **kwargs):
     extent = (trans[0], trans[0] + ds.RasterXSize*trans[1],
               trans[3] + ds.RasterYSize*trans[5], trans[3])
 
-    plt.imshow(arr[:3,:,:].transpose((1, 2, 0)), extent=extent, **kwargs)
+    imshow(arr[:3,:,:].transpose((1, 2, 0)), extent=extent, **kwargs)
 
 from networkx import draw_networkx, draw_networkx_edges
 import numpy as np
